@@ -1,0 +1,16 @@
+pip install chatterbot
+pip install chatterbot_corpus
+from chatterbot import ChatBot
+from chatterbot.trainers import ListTrainer,ChatterBotCorpusTrainer
+Bot = ChatBot(name='Chiku',read_only = True,logic_adapters=['chatterbot.logic.BestMatch'])
+corpus_trainer = ChatterBotCorpusTrainer(Bot)
+corpus_trainer.train('chatterbot.corpus.english')
+print(Bot.get_response('Hello'))
+train_list = ['What is your name?','I am a Chiku','I am Chiku you can call me anything','(.*) game?','I like Hockey ']
+list_trainer = ListTrainer(Bot)
+list_trainer.train(train_list)
+while True:
+  input_text = input('You:')
+  if input_text == 'quit':
+    break
+  print('Chiku:',Bot.get_response(input_text))

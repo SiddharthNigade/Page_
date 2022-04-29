@@ -1,0 +1,142 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+/*
+class graph
+{
+    vector<pair<int,int>> adj[10];
+    public:
+    graph()
+    {
+        int u,v,flag,w;
+        while(true)
+        {
+            cout<<"Edge : ";
+            cin>>u>>v;
+            cout<<"Weight : ";
+            cin>>w;
+            adj[u].push_back(make_pair(v,w));
+            adj[v].push_back(make_pair(u,w));
+
+            cout<<"Continue ? (1/0)";
+            cin>>flag;
+            if(flag==0)
+                break;
+        }
+    }
+
+    void dijkstras()
+    {
+        int distance[10],src;
+        for(int i=0;i<10;i++)
+        {
+            distance[i]=INT_MAX;
+        }
+
+        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>> > pq;
+        cout<<"Source ";
+        cin>>src;
+        pq.push(make_pair(0,src));
+        distance[src]=0;
+
+        while(!pq.empty())
+        {
+            int node=pq.top().second;
+            int dis=pq.top().first;
+            pq.pop();
+
+            for(int i=0;i<adj[node].size();i++)
+            {
+                //int t=adj[node][i].first;
+                if(dis+adj[node][i].second<distance[adj[node][i].first])
+                {
+                    distance[adj[node][i].first]=dis+adj[node][i].second;
+                    pq.push( make_pair( distance[adj[node][i].first],adj[node][i].first ) );
+                }
+            }
+
+
+        }
+
+        for(int i=0;i<10;i++)
+            cout<<distance[i]<<" ";
+        cout<<endl;
+
+
+    }
+
+};
+*/
+
+class Dikstra
+{
+private:
+    vector<int,int> adj[10];
+public:
+    Dikstra()
+    {
+        int u,v,w,flag;
+        while(true)
+        {
+           cout<< "Edge:";
+        cin>>u>>v;
+        cout<< "Weight";
+        cin>>w;
+        adj[u].push_back(make_pair(v,w));
+        adj[v].push_back(make_pair(u,w));
+        cout<< "continue(1/0)";
+        cin>>flag;
+        if(flag==0)
+        {
+            break;
+        }
+
+        }
+    }
+    void Graph()
+    {
+        int distance[10];
+        int src;
+        for(int i=0;i<10;i++)
+        {
+            distance[i]= INT_MAX:
+        }
+        priority_queue<pair<int,int>,vector<pair<int,int>>, greater<pair<int,int>> >pq;
+        cout<< "Source:";
+        cin>>src;
+        pq.push(0,src);
+        distance[src] = 0;
+        while(!pq.empty())
+        {
+            int node = pq.top().second;
+            int dist = pq.top().first();
+            pq.pop();
+            for(int i=0;i<adj[node].size();i++)
+            {
+               if(dis+adj[node][i].second<distance[adj[node][i].first])
+                {
+                    distance[adj[node][i].first]=dis+adj[node][i].second;
+                    pq.push( make_pair( distance[adj[node][i].first],adj[node][i].first ) );
+                }
+            }
+        }
+        for(int i=0;i<10;i++)
+        {
+            cout<< " "<<distance[i];
+            cout<<endl;
+        }
+
+    }
+};
+
+int main()
+{
+    //graph g;
+    //g.dijkstras();
+    Dikstra d;
+    d.Graph();
+    return 0;
+}
+
+
+
